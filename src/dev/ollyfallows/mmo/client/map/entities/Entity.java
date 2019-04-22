@@ -8,13 +8,13 @@ import dev.ollyfallows.mmo.client.graphics.Sprite;
 public class Entity extends Sprite{
 	
 	private boolean dxChanged=false, dyChanged=false;
-	private double dx=0,dy=0,speed=1;
+	private double dx=0,dy=0,speed=100;
 	
 	public Entity(double x, double y, double w, double h, Image img) {
 		super(x, y, w, h, img);
 	}
 	
-	public void update(long delta) {
+	public void update(double delta) {
 		setX(getX() + dx*speed*delta);
 		setY(getY() + dy*speed*delta);
 	}

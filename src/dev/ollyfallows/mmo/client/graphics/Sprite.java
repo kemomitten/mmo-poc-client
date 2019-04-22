@@ -7,7 +7,7 @@ import dev.ollyfallows.mmo.client.NetworkEngine;
 
 public class Sprite {
 	
-	protected String id = "";
+	protected String id = "asdf";
 	private boolean xChanged=false,yChanged=false,wChanged=false,hChanged=false;
 	private double x,y,w,h;
 	protected Image img;
@@ -70,16 +70,31 @@ public class Sprite {
 	}
 	public void sendChanges() {
 		if (xChanged) {
-			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','prop':'x','x':'"+x+"'}");
+			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','type':'graphics.Sprite','prop':'x','x':'"+x+"'}");
 		}
 		if (yChanged) {
-			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','prop':'y','y':'"+y+"'}");
+			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','type':'graphics.Sprite','prop':'y','y':'"+y+"'}");
 		}
 		if (wChanged) {
-			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','prop':'w','w':'"+w+"'}");
+			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','type':'graphics.Sprite','prop':'w','w':'"+w+"'}");
 		}
 		if (hChanged) {
-			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','prop':'h','h':'"+h+"'}");
+			NetworkEngine.sendMsg("{'event':'update','id':'"+id+"','type':'graphics.Sprite','prop':'h','h':'"+h+"'}");
+		}
+	}
+	
+	public void set(String var, String val) {
+		if(var.equals("x")) {
+			x = Double.parseDouble(val);
+		}
+		if(var.equals("y")) {
+			y = Double.parseDouble(val);
+		}
+		if(var.equals("w")) {
+			w = Double.parseDouble(val);
+		}
+		if(var.equals("h")) {
+			h = Double.parseDouble(val);
 		}
 	}
 }

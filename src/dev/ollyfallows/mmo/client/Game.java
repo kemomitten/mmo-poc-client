@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 import dev.ollyfallows.mmo.client.graphics.Sprite;
+import dev.ollyfallows.mmo.client.input.KeyboardHandler;
 import dev.ollyfallows.mmo.client.map.Map;
 import dev.ollyfallows.mmo.client.map.entities.Entity;
 import dev.ollyfallows.mmo.client.map.entities.PC;
@@ -38,6 +39,12 @@ public class Game implements ActionListener{
 		pc = new PC(0,0,32,32);
 		pe.getMap().addEntity(pc);
 		
+		// Add input listeners
+	    ge.setFocusable(true);
+	    ge.addKeyListener(new KeyboardHandler((PC)pc));
+	    
+	    ge.requestFocusInWindow();
+		
 		ticker = new Timer(1000/fps, this);
 		ticker.start();
 	}
@@ -48,7 +55,7 @@ public class Game implements ActionListener{
 			if(processing) return;
 			processing = true;
 			
-			long delta = System.currentTimeMillis()-lastTime;
+			double delta = System.currentTimeMillis()-lastTime;
 			delta /= 1000;
 			lastTime = System.currentTimeMillis();
 			
@@ -61,39 +68,27 @@ public class Game implements ActionListener{
 		}
 	}	
 	
-	public void updatePreLoop(long delta) {
-		try {
-			String msg = null;
-			while((msg = NetworkEngine.getMsg()) != null) {
-				
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void updatePreLoop(double delta) {
 		for(Sprite s : pe.getMap().getBlocks()) {
 			s.resetChanged();
 		}
 		for(Sprite s : pe.getMap().getEntities()) {
 			s.resetChanged();
 		}
+		pe.getMap().updateMap();
 	}
 	
-	public void updateLoop(long delta) {
+	public void updateLoop(double delta) {
 		pe.update(delta);
 	}
 	
 	public void draw() {
 		ge.emptySprites();
-		ge.addSprites(pe.getSprites());
+		ge.addSprites(pe.getMap().getSprites());
 		win.repaint();
 	}
 	
-	public void updatePostLoop(long delta) {
-		for(Sprite s : pe.getMap().getBlocks()) {
-			s.sendChanges();
-		}
-		for(Sprite s : pe.getMap().getEntities()) {
-			s.sendChanges();
-		}
+	public void updatePostLoop(double delta) {
+		pe.getMap().updateServer();
 	}
 }

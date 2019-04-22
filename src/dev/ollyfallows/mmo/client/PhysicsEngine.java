@@ -14,7 +14,7 @@ public class PhysicsEngine {
 		
 	}
 	
-	public void update(long delta) {
+	public void update(double delta) {
 		for (Entity e : map.getEntities()) {
 			e.update(delta);
 		}
@@ -24,12 +24,5 @@ public class PhysicsEngine {
 	
 	public Map getMap() {
 		return map;
-	}
-	
-	public ArrayList<Sprite> getSprites(){
-		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
-		sprites.addAll(map.getBlocks());
-		sprites.addAll(map.getEntities());
-		return sprites;
 	}
 }
