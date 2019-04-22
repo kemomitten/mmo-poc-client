@@ -48,4 +48,21 @@ public class Map {
 	public ArrayList<Entity> getEntities(){
 		return entities;
 	}
+	
+	public Entity getEntityById(String id) {
+		for (Entity e : entities) {
+			if (e.getId().equals(id)) {
+				return e;
+			}
+		}
+		return null;
+	}
+	public Block getBlockById(String id) {
+		for (Block b : blocks) {
+			if (b.getId().equals(id)) {
+				return b;
+			}
+		}
+		return null;
+	}
 }
