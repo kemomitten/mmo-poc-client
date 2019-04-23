@@ -1,4 +1,4 @@
-package dev.ollyfallows.mmo.client;
+package dev.kemomitten.mmo.client;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

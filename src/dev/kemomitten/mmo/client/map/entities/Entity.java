@@ -2,7 +2,7 @@ package dev.ollyfallows.mmo.client.map.entities;
 
 import java.awt.Image;
 
-import dev.ollyfallows.mmo.client.NetworkEngine;
+import dev.kemomitten.mmo.client.NetworkEngine;
 import dev.ollyfallows.mmo.client.graphics.Sprite;
 
 public class Entity extends Sprite{

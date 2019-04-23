@@ -3,7 +3,7 @@ package dev.ollyfallows.mmo.client.graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
-import dev.ollyfallows.mmo.client.NetworkEngine;
+import dev.kemomitten.mmo.client.NetworkEngine;
 
 public class Sprite {
 	

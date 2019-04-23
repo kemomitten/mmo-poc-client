@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import dev.ollyfallows.mmo.client.NetworkEngine;
+import dev.kemomitten.mmo.client.NetworkEngine;
 import dev.ollyfallows.mmo.client.graphics.Sprite;
 import dev.ollyfallows.mmo.client.map.entities.Entity;
 import dev.ollyfallows.mmo.client.map.structure.Block;

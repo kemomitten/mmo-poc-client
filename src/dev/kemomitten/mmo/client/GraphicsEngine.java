@@ -1,4 +1,4 @@
-package dev.ollyfallows.mmo.client;
+package dev.kemomitten.mmo.client;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
