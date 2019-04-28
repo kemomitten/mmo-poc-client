@@ -13,6 +13,12 @@ public class Map {
 	
 	public Map(){}
 	
+	public void update(double delta) {
+		entities.forEach((String uid, Entity e) -> {
+			e.update(delta);
+		});
+	}
+	
 	public Entity getEntity(String uid) {
 		return entities.containsKey(uid) ? entities.get(uid) : null;
 	}

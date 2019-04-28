@@ -45,10 +45,10 @@ public class Sprite {
 	}
 	public boolean proccessState(String[] argv) {
 		try {
-			this.x = Integer.parseInt(argv[0]);
-			this.y = Integer.parseInt(argv[1]);
-			this.w = Integer.parseInt(argv[2]);
-			this.h = Integer.parseInt(argv[3]);
+			this.x = Double.parseDouble(argv[0]);
+			this.y = Double.parseDouble(argv[1]);
+			this.w = Double.parseDouble(argv[2]);
+			this.h = Double.parseDouble(argv[3]);
 			return true;
 		}catch(Exception e) {
 			e.printStackTrace();

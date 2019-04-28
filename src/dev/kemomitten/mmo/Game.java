@@ -58,11 +58,10 @@ public class Game implements ActionListener{
 			processing = true;
 			
 			double delta = System.currentTimeMillis()-lastTime;
-			delta /= 1000;
 			lastTime = System.currentTimeMillis();
 			
 			updatePreLoop(delta);
-			updateLoop(delta);
+			//updateLoop(delta);
 			draw();
 			updatePostLoop(delta);
 			
@@ -123,7 +122,7 @@ public class Game implements ActionListener{
 	
 	public void updateLoop(double delta) {
 		// Update process events
-		
+		map.update(delta);
 	}
 	
 	public void draw() {
