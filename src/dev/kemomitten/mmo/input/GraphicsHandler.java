@@ -1,4 +1,4 @@
-package dev.ollyfallows.mmo.client.input;
+package dev.kemomitten.mmo.input;
 
 import java.awt.Image;
 import java.util.HashMap;

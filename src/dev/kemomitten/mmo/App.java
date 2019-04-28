@@ -1,7 +1,6 @@
-package dev.kemomitten.mmo.client;
+package dev.kemomitten.mmo;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import dev.kemomitten.mmo.map.entities.Entity;
 
 public class App {
 	

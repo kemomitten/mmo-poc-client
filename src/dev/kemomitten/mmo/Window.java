@@ -1,4 +1,4 @@
-package dev.kemomitten.mmo.client;
+package dev.kemomitten.mmo;
 
 import javax.swing.JFrame;
 
