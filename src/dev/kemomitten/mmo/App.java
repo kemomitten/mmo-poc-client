@@ -1,7 +1,5 @@
 package dev.kemomitten.mmo;
 
-import dev.kemomitten.mmo.map.entities.Entity;
-
 public class App {
 	
 	public static int WIDTH=400,HEIGHT=300;

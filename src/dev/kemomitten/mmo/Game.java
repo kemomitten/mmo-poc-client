@@ -2,6 +2,8 @@ package dev.kemomitten.mmo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Arrays;
 
 import javax.swing.Timer;
@@ -40,6 +42,13 @@ public class Game implements ActionListener{
 		ne = new NetworkEngine();
 		
 		win = new Window(ge);
+		
+		win.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				ne.disconnect();
+				System.exit(0);
+			}
+		});
 		
 		// Add input listeners
 	    ge.setFocusable(true);

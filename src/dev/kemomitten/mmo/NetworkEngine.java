@@ -47,4 +47,16 @@ public class NetworkEngine {
 		}
 		return null;
 	}
+	
+	public void disconnect() {
+		try {
+			connection.shutdownInput();
+			connection.shutdownOutput();
+			in.close();
+			out.close();
+			connection.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
